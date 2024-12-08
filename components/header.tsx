@@ -10,44 +10,61 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="border-b">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
             </Button>
-            <Link href="/" className="text-2xl font-bold text-green-700">
-              OJA
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-primary">OJA</span>
             </Link>
           </div>
           
-          <div className="hidden md:flex flex-1 max-w-xl mx-4">
-            <div className="relative w-full">
+          <div className="hidden flex-1 md:block max-w-md lg:max-w-xl">
+            <form className="relative">
               <Input
                 type="search"
                 placeholder="Search Products..."
-                className="w-full"
+                className="w-full pr-12"
               />
-              <Button className="absolute right-0 top-0" variant="default">
+              <Button type="submit" size="sm" className="absolute right-1 top-1/2 -translate-y-1/2">
                 Search
               </Button>
-            </div>
+            </form>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="icon" className="hidden md:inline-flex">
               <User className="h-5 w-5" />
+              <span className="sr-only">Account</span>
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="hidden md:inline-flex">
               <Clock className="h-5 w-5" />
+              <span className="sr-only">Orders</span>
             </Button>
             <Button variant="ghost" size="icon">
               <ShoppingCart className="h-5 w-5" />
+              <span className="sr-only">Cart</span>
             </Button>
           </div>
         </div>
       </div>
+      
+      {isMenuOpen && (
+        <div className="border-t md:hidden">
+          <div className="container mx-auto p-4">
+            <nav className="grid gap-4">
+              <Link href="/men" className="text-sm font-medium">Men Wears</Link>
+              <Link href="/women" className="text-sm font-medium">Women Wears</Link>
+              <Link href="/electronics" className="text-sm font-medium">Electronics</Link>
+              <Link href="/smartphones" className="text-sm font-medium">Smartphones</Link>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

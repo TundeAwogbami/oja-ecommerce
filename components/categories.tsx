@@ -12,10 +12,12 @@ const categories = [
 
 export function Categories() {
   return (
-    <section className="py-12">
+    <section className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-8 text-center">Popular Categories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <h2 className="text-2xl font-bold text-center mb-8 md:text-3xl lg:text-4xl">
+          Popular Categories
+        </h2>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map((category) => (
             <Link
               key={category.name}
@@ -26,10 +28,14 @@ export function Categories() {
                 src={category.image}
                 alt={category.name}
                 fill
-                className="object-cover transition-transform group-hover:scale-105"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/40 flex items-end p-4">
-                <h3 className="text-white font-medium">{category.name}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="text-sm font-medium text-white md:text-base">
+                    {category.name}
+                  </h3>
+                </div>
               </div>
             </Link>
           ))}

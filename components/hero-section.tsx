@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -13,17 +14,24 @@ export function HeroSection() {
             <p className="text-2xl font-semibold text-red-600 md:text-3xl">
               50% off Discount
             </p>
-            <div>
+            <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                 Shop Now
               </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/signup">Sign Up</Link>
+              </Button>
+              <Button size="lg" variant="ghost" asChild>
+                <Link href="/login">Login</Link>
+              </Button>
             </div>
           </div>
-          <div className="relative aspect-square md:aspect-[4/3]">
+          <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[5/3]">
             <Image
-              src="/placeholder.svg"
+              src="/images/Denim-Jacket.jpeg"
               alt="Denim Jacket"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover rounded-lg"
               priority
             />

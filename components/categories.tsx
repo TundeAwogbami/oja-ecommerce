@@ -2,12 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 
 const categories = [
-  { name: "Men Wears", image: "/placeholder.svg" },
-  { name: "Women Wears", image: "/placeholder.svg" },
-  { name: "Headphones", image: "/placeholder.svg" },
-  { name: "Smartphones", image: "/placeholder.svg" },
-  { name: "Jewelry", image: "/placeholder.svg" },
-  { name: "Sneakers", image: "/placeholder.svg" },
+  { name: "Men Wears", image: "https://via.placeholder.com/300x300?text=Men+Wears" },
+  { name: "Women Wears", image: "https://via.placeholder.com/300x300?text=Women+Wears" },
+  { name: "Headphones", image: "https://via.placeholder.com/300x300?text=Headphones" },
+  { name: "Smartphones", image: "https://via.placeholder.com/300x300?text=Smartphones" },
+  { name: "Jewelry", image: "https://via.placeholder.com/300x300?text=Jewelry" },
+  { name: "Sneakers", image: "https://via.placeholder.com/300x300?text=Sneakers" },
 ]
 
 export function Categories() {
@@ -28,6 +28,7 @@ export function Categories() {
                 src={category.image}
                 alt={category.name}
                 fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">

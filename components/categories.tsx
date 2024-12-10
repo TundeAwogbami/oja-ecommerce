@@ -2,12 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 
 const categories = [
-  { name: "Men Wears", image: "https://via.placeholder.com/300x300?text=Men+Wears" },
-  { name: "Women Wears", image: "https://via.placeholder.com/300x300?text=Women+Wears" },
-  { name: "Headphones", image: "https://via.placeholder.com/300x300?text=Headphones" },
-  { name: "Smartphones", image: "https://via.placeholder.com/300x300?text=Smartphones" },
-  { name: "Jewelry", image: "https://via.placeholder.com/300x300?text=Jewelry" },
-  { name: "Sneakers", image: "https://via.placeholder.com/300x300?text=Sneakers" },
+  { name: "Men Wears", image: "/Images/Mens Wears.jpeg" },
+  { name: "Women Wears", image: "/Images/Womens Wears.jpeg" },
+  { name: "Headphones", image: "/Images/Headphones.jpeg" },
+  { name: "Smartphones", image: "/Images/Smartphones.jpeg" },
+  { name: "Jewelry", image: "/Images/Jewelry.jpeg" },
+  { name: "Sneakers", image: "/Images/Sneakers.jpeg" },
 ]
 
 export function Categories() {

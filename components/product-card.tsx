@@ -27,7 +27,7 @@ export function ProductCard({ id, name, price, image }: ProductCardProps) {
         <h3 className="text-lg font-semibold">
           <Link href={`/product/${id}`}>{name}</Link>
         </h3>
-        <p className="mt-1 text-sm text-gray-500">${price.toFixed(2)}</p>
+        <p className="mt-1 text-sm text-gray-500">N{price.toFixed(2)}</p>
         <Button className="mt-4 w-full" onClick={() => console.log(`Add ${name} to cart`)}>
           Add to Cart
         </Button>

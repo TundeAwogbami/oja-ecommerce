@@ -40,7 +40,7 @@ export default function BuyerSignupPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (validateForm()) {
-      // Here you would typically send the data to your backend
+      // Send the data to backend
       console.log('Form submitted:', formData)
       // Redirect to a success page or dashboard
       router.push('/dashboard')

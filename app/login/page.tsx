@@ -33,7 +33,7 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (validateForm()) {
-      // Here you would typically send the data to your backend for authentication
+      // Send the data to backend for authentication
       console.log('Login form submitted:', formData)
       // Redirect to a dashboard or home page after successful login
       router.push('/dashboard')
@@ -41,7 +41,7 @@ export default function LoginPage() {
   }
 
   const handleSocialLogin = (provider: string) => {
-    // Here you would implement the social login logic
+    // Implement the social login logic
     console.log(`Logging in with ${provider}`)
   }
 

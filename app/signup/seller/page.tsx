@@ -15,6 +15,8 @@ export default function SellerSignupPage() {
     email: '',
     password: '',
     confirmPassword: '',
+    location: '',
+    nin: '',
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
 
@@ -31,6 +33,9 @@ export default function SellerSignupPage() {
     if (!formData.password) newErrors.password = 'Password is required'
     else if (formData.password.length < 8) newErrors.password = 'Password must be at least 8 characters'
     if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match'
+    if (!formData.location) newErrors.location = 'Location is required'
+    if (!formData.nin) newErrors.nin = 'NIN is required'
+    else if (!/^\d{11}$/.test(formData.nin)) newErrors.nin = 'NIN must be 11 digits'
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -67,7 +72,7 @@ export default function SellerSignupPage() {
             <h2 className="text-2xl font-bold text-center mb-6">Seller Sign Up</h2>
             
             <div className="space-y-2">
-              <Label htmlFor="businessName">Business Name</Label>
+              <Label htmlFor="businessName">Username/Business Name</Label>
               <Input
                 id="businessName"
                 name="businessName"
@@ -115,6 +120,31 @@ export default function SellerSignupPage() {
                 required
               />
               {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="location">Input Location</Label>
+              <Input
+                id="location"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              />
+              {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="nin">NIN (National Identification Number)</Label>
+              <Input
+                id="nin"
+                name="nin"
+                value={formData.nin}
+                onChange={handleChange}
+                required
+                maxLength={11}
+              />
+              {errors.nin && <p className="text-red-500 text-sm">{errors.nin}</p>}
             </div>
             
             <Button type="submit" className="w-full bg-green-700 hover:bg-green-800">

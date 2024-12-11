@@ -41,10 +41,12 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden md:inline-flex">
-              <User className="h-5 w-5" />
-              <span className="sr-only">Account</span>
-            </Button>
+            <Link href="/profile">
+              <Button variant="ghost" size="icon" className="hidden md:inline-flex">
+                <User className="h-5 w-5" />
+                <span className="sr-only">Profile</span>
+              </Button>
+            </Link>
             <Button variant="ghost" size="icon" className="hidden md:inline-flex">
               <Clock className="h-5 w-5" />
               <span className="sr-only">Orders</span>

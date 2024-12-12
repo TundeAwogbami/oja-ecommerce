@@ -5,13 +5,19 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from 'next/image'
 import { Minus, Plus, X } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity } = useCart()
+  const router = useRouter()
 
   const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0)
   const tax = subtotal * 0.1 // Assuming 10% tax
   const total = subtotal + tax
+
+  const handleCheckout = () => {
+    router.push('/checkout')
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -76,7 +82,12 @@ export default function CartPage() {
                 <span>Total</span>
                 <span>${total.toFixed(2)}</span>
               </div>
-              <Button className="w-full mt-6" size="lg">
+              <Button 
+                className="w-full mt-6" 
+                size="lg"
+                onClick={handleCheckout}
+                disabled={items.length === 0}
+              >
                 Proceed to Checkout
               </Button>
             </div>

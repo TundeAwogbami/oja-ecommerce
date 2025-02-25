@@ -1,6 +1,7 @@
 'use client'
 
 import { ProductCard } from "@/components/product-card"
+import { ProductSearch } from "@/components/ProductSearch"
 
 // This would typically come from an API or database
 const products = [
@@ -15,6 +16,8 @@ const products = [
 export default function ShopPage() {
   return (
     <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">Shop Now</h1>
+      <ProductSearch />
       <h1 className="mb-8 text-3xl font-bold">In Stock</h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((product) => (
